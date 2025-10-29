@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <div id="headdiv">
+        <h2>Student Marks Table</h2>
+        <button id="addm" style="width: 100px; margin-bottom: 20px; height: 30px;">Add marks</button>
+
+        <div id="tabdiv">
+          <table id="tablem" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Subject 1</th>
+                <th>Subject 2</th>
+                <th>Subject 3</th>
+                <th>Subject 4</th>
+                <th>Subject 5</th>
+                <th>Total Marks</th>
+                <th>Average Marks</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="marks.js"></script>
+</body>
+</html>
