@@ -3,12 +3,9 @@ var addBtn = document.getElementById('addm');
 var tableBody = document.getElementById('tableBody');
 
 function calculateTotal(marks) {
-  var sum = 0;
-  for (var i = 0; i < marks.length; i++) {
-    sum += marks[i];
-  }
-  return sum;
+  return marks.reduce((acc, mark) => acc + mark, 0);
 }
+
 
 function calculateAverage(marks) {
   return calculateTotal(marks) / marks.length;
@@ -49,10 +46,10 @@ function addStudent() {
 
   var marks = [];
   for (var i = 1; i <= 5; i++) {
-    var mark = parseFloat(prompt("Enter marks for Subject " + i + " (0–100):"));
+    var mark = parseFloat(prompt("Enter marks for Subject " + i + " (0-100):"));
     while (isNaN(mark) || mark < 0 || mark > 100) {
       alert("Please enter a valid number between 0 and 100.");
-      mark = parseFloat(prompt("Enter marks for Subject " + i + " (0–100):"));
+      mark = parseFloat(prompt("Enter marks for Subject " + i + " (0-100):"));
     }
     marks.push(mark);
   }
