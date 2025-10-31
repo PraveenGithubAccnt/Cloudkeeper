@@ -9,8 +9,8 @@ Product.prototype.getDiscountedPrice = function (percent) {
 };
 
 function getMaxPrice() {
-  let max = 0;
-  for (let i = 0; i < this.length; i++) {
+  var max = 0;
+  for (var i = 0; i < this.length; i++) {
     if (this[i] > max) {
       max = this[i];
     }
@@ -39,7 +39,7 @@ costliestDiv.appendChild(heading);
 
 
   products.forEach((product) => {
-    const card = document.createElement("div");
+    var card = document.createElement("div");
     card.className = "card";
     card.style.border = "1px solid #ccc";
     card.style.padding = "10px";
@@ -67,7 +67,7 @@ costliestDiv.appendChild(heading);
     card.appendChild(discount);
 
     card.addEventListener("mouseenter", function () {
-      card.style.backgroundColor = "lightyellow";
+      card.style.backgroundColor = "lightblue";
     });
 
     card.addEventListener("mouseleave", function () {
