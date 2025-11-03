@@ -23,7 +23,6 @@ switch (parseInt(choice)) {
     break;
 
   case 3:
-
     let insertNum = parseInt(prompt("Enter the number to insert:"));
     let index = parseInt(prompt("Enter the index to insert at:"));
     numbers.splice(index, 0, insertNum);
@@ -44,19 +43,29 @@ switch (parseInt(choice)) {
 
   case 5:
     // Sort ascending
-   let num = numbers.slice(); 
-    num.sort(); 
-    console.log("After sorting ascending (with sort()):", num);
+    var num = numbers.slice();
+    for (var i = 0; i < num.length - 1; i++) {
+      for (var j = i + 1; j < num.length; j++) {
+        if (num[i] > num[j]) {
+          var temp = num[i];
+          num[i] = num[j];
+          num[j] = temp;
+        }
+      }
+    }
+
+    console.log("After sorting ascending (without sort):", num);
+
     break;
 
   case 6:
     // Reverse
-   let reversed = [];
-   for (let i = numbers.length - 1; i >= 0; i--) {
-    reversed.push(numbers[i]);
-  }
+    let reversed = [];
+    for (let i = numbers.length - 1; i >= 0; i--) {
+      reversed.push(numbers[i]);
+    }
 
-  console.log("Reversed array:", reversed);
+    console.log("Reversed array:", reversed);
     break;
 
   case 7:
@@ -64,14 +73,11 @@ switch (parseInt(choice)) {
     let searchNum = parseInt(prompt("Enter the number to find:"));
     let ind = numbers.indexOf(searchNum);
 
-  if (ind!== -1) 
-    {
-  console.log(`${searchNum} found at index ${ind}`);
-  } 
-else 
-    {
-  console.log(`${searchNum} not found`);
-}
+    if (ind !== -1) {
+      console.log(`${searchNum} found at index ${ind}`);
+    } else {
+      console.log(`${searchNum} not found`);
+    }
     break;
 
   default:
