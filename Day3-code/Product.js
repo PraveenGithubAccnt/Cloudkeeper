@@ -18,7 +18,6 @@ function getMaxPrice() {
   return max;
 }
 
-
 (function () {
   var products = [
     new Product("Laptop", 79999, "Electronics"),
@@ -32,11 +31,10 @@ function getMaxPrice() {
 
   var prices = products.map((p) => p.price);
   var maxPrice = getMaxPrice.call(prices);
-  
+
 var heading = document.createElement("h4");
 heading.textContent = `Price of costliest product is $${maxPrice}`;
 costliestDiv.appendChild(heading);
-
 
   products.forEach((product) => {
     var card = document.createElement("div");
@@ -77,3 +75,50 @@ costliestDiv.appendChild(heading);
     productList.appendChild(card);
   });
 })();
+
+// const a = 'string'
+
+// const ar = document.getElementsByClassName("product");
+// const ar2 = document.querySelectorAll(".product");
+// console.log("getElemntByClassname" ,ar);
+// console.log("querySelector", ar2);
+
+// const list1 = [];
+// const list2 = [];
+
+// ar.forEach(element => {
+//   list1.push(element)
+// });
+
+// for (let i = 0; i < ar.length; i++) {
+//   const element = array[i];
+
+// }
+
+// ar2.forEach(element => {
+//   list2.push(element)
+// });
+
+// ar2.map(element => element);
+
+// console.log("ar", ar);
+// console.log("ar2", ar2);
+
+// const liveCollection = document.getElementsByClassName("product"); // HTMLCollection
+// const staticNodeList = document.querySelectorAll(".product"); // NodeList
+
+// console.log("Initially:");
+// console.log("HTMLCollection:", liveCollection.length);
+// console.log("NodeList:", staticNodeList.length);
+
+// // Add a new product when button is clicked
+// document.getElementById("add").addEventListener("click", () => {
+//   const newDiv = document.createElement("div");
+//   newDiv.className = "product";
+//   newDiv.textContent = "New Product";
+//   document.body.appendChild(newDiv);
+
+//   console.log("After adding new product:");
+//   console.log("HTMLCollection (live):", liveCollection.length);
+//   console.log("NodeList (static):", staticNodeList.length);
+// });

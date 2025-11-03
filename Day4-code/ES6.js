@@ -188,3 +188,16 @@ function flattenArray(arr) {
 }
 
 console.log(flattenArray([1, [2, [3, [4, 5]]]]));
+
+
+//binding
+ const per = {
+  name: "Alice",
+  greet() {
+    console.log(`Hello, ${this.name}`);
+  }
+};
+
+setTimeout(per.greet, 1000); // ❌ undefined, because `this` is lost
+setTimeout(per.greet.bind(per), 1000); // ✅ Hello, Alice
+
