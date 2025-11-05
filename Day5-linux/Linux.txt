@@ -1,0 +1,248 @@
+Q1. Find and terminate the top memory-consuming process on your system.
+
+Open terminal and run this command to display processes sorted by memory usage:
+peaveen-kumar@CKpraveenkumar: ps aux --sort=-%mem
+
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+peaveen+    6212 18.5  3.3 12106020 528740 ?     Sl   20:47   1:15 /snap/f
+peaveen+    5524  1.8  3.1 1463036004 504712 ?   Sl   20:39   0:15 /proc/s
+peaveen+    6713 17.9  3.0 3098196 475056 ?      Sl   20:47   1:12 /snap/f
+root        2827  9.0  2.7 1333280 431616 ?      Sl   20:36   1:34 /opt/Mc
+root        2814  0.8  2.6 1332252 426168 ?      Sl   20:36   0:09 /opt/Mc
+root        2819  0.0  2.6 1332252 422776 ?      Sl   20:36   0:00 /opt/Mc
+peaveen+    5433  7.4  2.0 1478441456 328888 ?   Sl   20:39   1:05 /usr/sh
+
+Run the command kill <PID>, replacing <PID> with the number you found:
+
+peaveen-kumar@CKpraveenkumar: kill 6212
+
+If the process does not terminate, force kill it:
+peaveen-kumar@CKpraveenkumar: kill -9 <PID>
+
+<!#############################################################################################!>
+
+
+Q2. Create a user named devops and grant them sudo privileges.
+
+Create the user "devops" with the adduser command:
+peaveen-kumar@CKpraveenkumar: sudo adduser devops
+
+Grant the "devops" user sudo privileges by adding them to the sudo group:
+peaveen-kumar@CKpraveenkumar: sudo usermod -aG sudo devops       //The -aG in the usermod command means "append the user to the groups listed, without removing them from other groups
+
+Verify the user "devops" belongs to the sudo group:
+peaveen-kumar@CKpraveenkumar: groups devops
+You should see "sudo" in the list of groups returned.
+
+<!#############################################################################################!>
+
+
+Q3. Connect to a remote server, create a directory, and copy files into it using SCP.
+
+peaveen-kumar@CKpraveenkumar:~$ scp key.txt prateek-srivastava@10.1.209.255:/home/prateek-srivastava/Documents
+prateek-srivastava@10.1.209.255's password: 
+Permission denied, please try again.
+prateek-srivastava@10.1.209.255's password: 
+key.txt                                                  100% 3414   396.1KB/s   00:00 
+
+<!#############################################################################################!>
+
+
+Q4. List all active processes and save only those containing the word java into a file.
+
+List all running processes 
+peaveen-kumar@CKpraveenkumar: ps aux
+
+Filter only processes containing “java”
+peaveen-kumar@CKpraveenkumar: ps aux | grep java
+
+Save output to a file "java_processes.txt"
+peaveen-kumar@CKpraveenkumar: ps aux | grep java >> java_processes.txt
+
+view the file content 
+peaveen-kumar@CKpraveenkumar: cat java_processes.txt
+
+<!#############################################################################################!>
+
+
+Q5. Generate an SSH key pair and configure it for two different remote servers.
+Create two SSH (secure Shell) key pairs (one per server)
+# key for server1
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_server1 -C "server1 key for peaveen"
+
+# key for server2
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_server2 -C "server2 key for peaveen"
+
+
+
+Enter into different remote servers.
+peaveen-kumar@CKpraveenkumar:~$ ssh prateek-srivastava@192.168.1.47
+The authenticity of host '192.168.1.47 (192.168.1.47)' can't be established.
+ED25519 key fingerprint is SHA256:BWI7OqDERVkvyzB6jqPK9BTgci8TG230gmDqPEbug5I.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: [hashed name]
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '192.168.1.47' (ED25519) to the list of known hosts.
+prateek-srivastava@192.168.1.47's password: 
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.14.0-34-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+11 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+*** System restart required ***
+Last login: Wed Nov  5 17:02:46 2025 from 10.1.210.12
+prateek-srivastava@CK-prateeksrivastava:~$ ls
+amp.txt           hello.class                                      shell_count.txt
+Desktop           hello.java                                       snap
+doc.tar           micorsoft-edge-stable_129.0.2792.79-1_amd64.deb  taring
+Documents         Music                                            taring.tar
+Downloads         Pictures                                         Templates
+error1_found.txt  Public                                           tempo.txt
+errors_found.txt  samirkhan@10.1.210.12                            Videos
+fileg.txt         samirremote
+prateek-srivastava@CK-prateeksrivastava:~$ cd Documents/
+prateek-srivastava@CK-prateeksrivastava:~/Documents$ ls
+amp.txt        home          package.json       sshKey.txt      temp.txt
+conf_list.txt  key.txt       package-lock.json  sshKey.txt.pub
+filedoc.tar    node_modules  scpget             tempFolder
+prateek-srivastava@CK-prateeksrivastava:~/Documents$ vim EnteredInsystem.txt
+
+
+<!#############################################################################################!>
+
+
+Q6. Find all lines containing “error” in /var/log/syslog and redirect them to errors_found.txt
+peaveen-kumar@CKpraveenkumar: grep -i "error" /var/log/syslog >> errors_found.txt
+
+<!#############################################################################################!>
+
+
+Q7. Find all .conf files in /etc, sort them alphabetically, and save to conf_list.txt.
+peaveen-kumar@CKpraveenkumar: find /etc -type f -name "*.conf" | sort >> conf_list.txt
+peaveen-kumar@CKpraveenkumar: cat conf_list.txt
+
+<!#############################################################################################!>
+
+
+Q8. Display the total number of unique shell types listed in /etc/passwd and save to shell_count.txt
+peaveen-kumar@CKpraveenkumar: cut -d: -f7 /etc/passwd | sort -u | wc -l > shell_count.txt
+
+    cut -d: -f7 /etc/passwd extracts the 7th field (shell path) from the passwd file.
+
+    sort sorts the shell paths alphabetically.
+
+    uniq filters only unique shell paths.
+
+    wc -l counts the number of unique shell paths.
+
+    The result is redirected and saved to shell_count.txt.
+
+<!#############################################################################################!>
+
+
+Q9. Explore vi/vim for  Creating a text file. Understand cursor movement, switching input mode (append, insert etc), deleting command, pasting content, undo , redo ,search , save and quit operations in vim. 
+
+Open or create a file:
+    vim filename
+
+Switch to insert mode (to type text):
+
+        i insert before cursor
+
+        a append after cursor
+
+        o open new line below
+        Exit insert mode: Esc
+
+Cursor movement:
+
+        h left, j down, k up, l right
+
+        0 start of line, $ end of line
+
+        w next word, b previous word
+
+        gg start of file, G end of file
+
+Deleting text:
+
+        x delete character under cursor
+
+        dd delete entire line
+
+        dw delete word
+
+Copying and pasting:
+
+        yy copy (yank) line
+
+        p paste after cursoruuuuuuu
+
+Undo and redo:
+
+        u undo last change
+
+        Ctrl+r redo
+
+Searching:
+
+        /pattern search forward
+
+        ?pattern search backward
+
+        n repeat search forward
+
+        N repeat search backward
+
+Save and quit first press ":"
+
+        :w save file
+
+        :q quit
+
+        :wq save and quit
+
+        :q! quit without saving
+
+<!#############################################################################################!>
+
+
+Q10. Reset the current user password and reboot the system form shell. 
+
+peaveen-kumar@CKpraveenkumar:passwd
+New password:
+Retype new password:
+
+peaveen-kumar@CKpraveenkumar: sudo reboot
+
+<!#############################################################################################!>
+
+
+Q11. Zip the content of your home directory via tar and send it via scp to other person laptop. Unzip the content on other person laptop via tar. 
+
+peaveen-kumar@CKpraveenkumar:~$ tar -cvf filedoc.tar /home/peaveen-kumar/Documents
+peaveen-kumar@CKpraveenkumar:~$ scp filedoc.tar prateek-srivastava@10.1.209.255:/home/prateek-srivastava/Documents
+prateek-srivastava@10.1.209.255's password: 
+Permission denied, please try again.
+prateek-srivastava@10.1.209.255's password: 
+filedoc.tar                                                  100% 3414   396.1KB/s   00:00 
+
+Unzip
+peaveen-kumar@CKpraveenkumar: tar -xvf file.tar
+
+<!#############################################################################################!>
+
+Q12.Install and setup application via apt - mysql, postman, docker, dbeaver
+
+peaveen-kumar@CKpraveenkumar: apt or snap
+
+<!#############################################################################################!>
