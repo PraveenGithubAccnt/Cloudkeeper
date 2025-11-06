@@ -201,3 +201,18 @@ console.log(flattenArray([1, [2, [3, [4, 5]]]]));
 setTimeout(per.greet, 1000); // ❌ undefined, because `this` is lost
 setTimeout(per.greet.bind(per), 1000); // ✅ Hello, Alice
 
+
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   show() {
+//     console.log(`My name is ${this.name}`);
+//   }
+// }
+
+// const ob = new Person("Praveen", 23);
+// ob.show();

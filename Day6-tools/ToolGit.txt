@@ -1,42 +1,204 @@
 Q1.Configure SSH key in github account.
 git clone https://github.com/PraveenGithubAccnt/Cloudkeeper.git
 
+<!#############################################################################################!>
+
+
 Q2.Create a repository on github account.
 steps to create a new repository 
 step 1:- Go to "New" option on github
 Step 2:- Fill the Details Repository Name;
 step 3:-Click on "Create Repository" 
 
+<!#############################################################################################!>
+
+
 Q3.Clone the above repository on your local from github. 
 git clone https://github.com/PraveenGithubAccnt/Cloudkeeper.git
 
+<!#############################################################################################!>
+
 
 Q4.Create a new file, say test.txt, in main/master branch. Make some changes to this file and commit the changes.
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Day5-linux/Linux.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Day6-tools/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ git add .
+
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Day5-linux/Linux.txt
+        new file:   Day6-tools/ToolGit.txt
+
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ git commit -m "Dev tools"
+[main df028df] Dev tools
+ 2 files changed, 45 insertions(+), 2 deletions(-)
+ create mode 100644 Day6-tools/ToolGit.txt
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ git push 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 14 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 941 bytes | 941.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/PraveenGithubAccnt/Cloudkeeper.git
+   98264cb..df028df  main -> main
+peaveen-kumar@CKpraveenkumar:~/Documents/ckersworks$ 
+
+<!#############################################################################################!>
 
 
 Q5.Create two branches from main/master branch, say f1 and f2.
+git checkout -b f1
+git checkout -b f2
+
+<!#############################################################################################!>
 
 
 Q6.How can you resolve a merge conflict in Git, provide an example.
+1	git checkout -b feature	Create branch
+2	Edit + commit	Change file
+3	git checkout main	Switch branch
+4	Edit + commit	Change file
+5	git merge feature	Merge & conflict appears
+<<<<<< HEAD
+Hello World!
+=======
+Hello Git!
+>>>>>>> feature
+HEAD = current branch (main)
+feature = branch we are merging
+➡ Remove conflict markers (<<<<<<<, =======, >>>>>>>)
 
+Manually fix file Resolve conflict
+git add + git commit Save resolution
+
+<!#############################################################################################!>
 
 Q7.Show how divergence occurs in a branch.
+Branch divergence happens when two branches start from the same commit,
+but then each gets different commits, causing their histories to go in different directions.
+
+<!#############################################################################################!>
 
 
 Q8.Difference between git init and git clone.
 
+git init
+Used to create a new empty Git repository in your local folder.
+It does not download anything.
+It only initializes .git inside the current directory.
+
+git clone
+Used to copy an existing remote repository (from GitHub, GitLab, etc.) into your local system.
+It automatically creates a project folder, downloads all files, and sets the remote link.
+
+<!#############################################################################################!>
+
 
 Q9.Difference between git branch and git checkout.
+git branch
+Used to create, list, or delete branches.
+It does not switch between branches.
+git branch              # list all branches
+git branch feature1     # create a new branch
+git branch -d feature1  # delete a branch
+
+git checkout
+Used to switch to another branch or restore files.
+If used with -b, it can create and switch to a new branch at the same time.
+git checkout main       # switch to main branch
+git checkout feature1   # switch to feature1
+git checkout -b bugfix  # create + switch to new branch
+
+<!#############################################################################################!>
 
 
 Q10.Difference between git fetch and git pull.
+git fetch
+Downloads latest changes from the remote repository
+Does NOT merge them into your current branch automatically
+Lets you review changes before merging
+After fetching, you can compare and merge manually:
+git merge origin/main
+
+git pull
+Downloads latest changes AND merges them into your current branch automatically
+
+<!#############################################################################################!>
 
 
 Q11.How to squash commits?
+step1: Check your commit history
+git log --oneline
+
+abcd123 Fix bug
+efgh456 Add styles
+ijkl789 Initial code
+
+step2: Start interactive rebase
+git rebase -i HEAD~2
+pick efgh456 Add styles
+pick abcd123 Fix bug
+
+HEAD~2 → means you are working on the last 2 commits
+
+Change pick → squash (or s) for the commit you want to combine:
+pick efgh456 Add styles
+squash abcd123 Fix bug
+
+step4: Write commit message and Done
+Add styles + bug fix
+
+<!#############################################################################################!>
 
 
 Q12.Show the difference between git reset and git revert.
+git reset
+Used to move HEAD backwards to a previous commit.
+It changes the commit history → destructive.
+
+Soft reset → keeps changes staged
+git reset --soft <commit>
+
+Mixed reset (default) → keeps changes unstaged
+git reset <commit>
+
+Hard reset → deletes changes
+git reset --hard <commit>
+
+
+git revert
+
+Creates a new commit that undoes changes from an older commit.
+History stays intact → non-destructive
+git revert <commit>
+
+<!#############################################################################################!>
 
 
 Q13.Delete branch from local and remote.
+Delete branch from local
+git branch -D f1
+
+Delete branch from remote
+git push origin --delete f1
+
+<!#############################################################################################!>
 
