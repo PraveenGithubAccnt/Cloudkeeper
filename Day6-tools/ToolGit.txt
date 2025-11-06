@@ -1,0 +1,42 @@
+Q1.Configure SSH key in github account.
+git clone https://github.com/PraveenGithubAccnt/Cloudkeeper.git
+
+Q2.Create a repository on github account.
+steps to create a new repository 
+step 1:- Go to "New" option on github
+Step 2:- Fill the Details Repository Name;
+step 3:-Click on "Create Repository" 
+
+Q3.Clone the above repository on your local from github. 
+git clone https://github.com/PraveenGithubAccnt/Cloudkeeper.git
+
+
+Q4.Create a new file, say test.txt, in main/master branch. Make some changes to this file and commit the changes.
+
+
+Q5.Create two branches from main/master branch, say f1 and f2.
+
+
+Q6.How can you resolve a merge conflict in Git, provide an example.
+
+
+Q7.Show how divergence occurs in a branch.
+
+
+Q8.Difference between git init and git clone.
+
+
+Q9.Difference between git branch and git checkout.
+
+
+Q10.Difference between git fetch and git pull.
+
+
+Q11.How to squash commits?
+
+
+Q12.Show the difference between git reset and git revert.
+
+
+Q13.Delete branch from local and remote.
+

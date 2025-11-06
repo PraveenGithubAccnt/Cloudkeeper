@@ -41,8 +41,7 @@ Q3. Connect to a remote server, create a directory, and copy files into it using
 
 peaveen-kumar@CKpraveenkumar:~$ scp key.txt prateek-srivastava@10.1.209.255:/home/prateek-srivastava/Documents
 prateek-srivastava@10.1.209.255's password: 
-Permission denied, please try again.
-prateek-srivastava@10.1.209.255's password: 
+
 key.txt                                                  100% 3414   396.1KB/s   00:00 
 
 <!#############################################################################################!>
@@ -77,6 +76,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_server2 -C "server2 key for peaveen"
 
 Enter into different remote servers.
 peaveen-kumar@CKpraveenkumar:~$ ssh prateek-srivastava@192.168.1.47
+
 The authenticity of host '192.168.1.47 (192.168.1.47)' can't be established.
 ED25519 key fingerprint is SHA256:BWI7OqDERVkvyzB6jqPK9BTgci8TG230gmDqPEbug5I.
 This host key is known by the following other names/addresses:
@@ -116,6 +116,7 @@ conf_list.txt  key.txt       package-lock.json  sshKey.txt.pub
 filedoc.tar    node_modules  scpget             tempFolder
 prateek-srivastava@CK-prateeksrivastava:~/Documents$ vim EnteredInsystem.txt
 
+clt+d to logout
 
 <!#############################################################################################!>
 
