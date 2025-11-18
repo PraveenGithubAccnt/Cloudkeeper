@@ -1,6 +1,7 @@
 // ✅ Custom Exception
 class InvalidPriceException extends Exception {
-    InvalidPriceException(String message) {
+    InvalidPriceException(String message)
+    {
         super(message);
     }
 }

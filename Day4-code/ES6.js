@@ -216,3 +216,10 @@ setTimeout(per.greet.bind(per), 1000); // ✅ Hello, Alice
 
 // const ob = new Person("Praveen", 23);
 // ob.show();
+
+
+var fruits=["apple", "orange", "papaya"];
+
+fruits.forEach(function(frut,index){
+  console.log(index+":"+frut);
+})

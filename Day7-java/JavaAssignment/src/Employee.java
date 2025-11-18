@@ -14,21 +14,25 @@ class EmPojo{
 
     public void setId(int id)
     {
+
         this.id=id;
     }
 
     public void setName(String name)
     {
+
         this.name=name;
     }
 
     public void setSalary(double salary)
     {
+
         this.salary=salary;
     }
 
     public int getId()
     {
+
         return id;
     }
 
@@ -39,9 +43,12 @@ class EmPojo{
 
     public double getSalary()
     {
+
         return salary;
     }
-    public void calculateSalary() {
+    public void calculateSalary()
+    {
+
         System.out.println("Base Salary: " + salary);
     }
 }
@@ -50,6 +57,7 @@ class EmPojo{
 class FulltimeEmployee extends EmPojo
 {   public double baseSalary=8000;
     FulltimeEmployee(int id, String name, double salary) {
+
         super(id, name, salary);   // calling parent constructor
     }
     @Override
@@ -63,6 +71,7 @@ class FulltimeEmployee extends EmPojo
 class PartTimeEmployee extends EmPojo
 {
     PartTimeEmployee(int id, String name, double salary) {
+
         super(id, name, salary);   // calling parent constructor
     }
     @Override

@@ -7,7 +7,9 @@ public class ExceptionHnd {
             result = num1 / num2;
         } catch (Exception e) {
             System.out.println("Error during division: " + e.getMessage());
-        } finally {
+        }
+        finally
+        {
             System.out.println("Division completed");
         }
         return result;
@@ -15,8 +17,8 @@ public class ExceptionHnd {
 
 
     int[] arr = new int[5];
-
-    public void nastedExp() {
+    public void nastedExp()
+    {
         Scanner sc = new Scanner(System.in);
 
         try {
@@ -26,44 +28,45 @@ public class ExceptionHnd {
             try {
                 System.out.println("Inner try");
                 int result = 10 / 0;
-            } catch (ArithmeticException ae) {
+            }
+            catch (ArithmeticException ae)
+            {
                 System.out.println("Caught inner ArithmeticException: " + ae);
             }
 
-            for (int i = 0; i <= arr.length; i++) {
+            for (int i = 0; i <= arr.length; i++)
+            {
                 System.out.println("Enter a number " + i + ":");
                 arr[i] = sc.nextInt();
             }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
             System.out.print("Caught outer ArrayIndexOutOfBoundsException: " + e);
         }
     }
 
 
     void m3() {
-        try {
-            int result = 5 / 0;
-            System.out.println("Result: " + result);
-        } catch (ArithmeticException ae) {
-            System.out.println("m3 caught exception: " + ae);
-            throw ae;
-        }
+        System.out.println("Inside m3()");
+
+        int x = 10 / 0;
+
+        System.out.println("Result: " + x);
     }
 
     void m2() {
-        try {
-            m3();
-        } catch (ArithmeticException ae) {
-            System.out.println("m2 caught and rethrowing");
-            throw ae;
-        }
+        System.out.println("Inside m2()");
+        m3();
     }
 
     void m1() {
+        System.out.println("Inside m1()");
+
         try {
             m2();
-        } catch (ArithmeticException ae) {
-            System.out.println("m1 finally caught: " + ae);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught in m1(): " + e);
         }
     }
 
@@ -88,18 +91,15 @@ public class ExceptionHnd {
 
 
 
-
     public void Propagation() {
         m1();
         Emailvalid();
     }
 
-
-    public static void main() {
+    static void main(String[] args) {
         ExceptionHnd div = new ExceptionHnd();
         double output = div.Division(6, 3);
         System.out.println("output is " + output);
-
         div.nastedExp();
         div.Propagation();
     }

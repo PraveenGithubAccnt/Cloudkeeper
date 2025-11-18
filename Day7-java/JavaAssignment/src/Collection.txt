@@ -1,0 +1,60 @@
+1. What is the Java Collections Framework? Explain its advantages.
+Java Collection Framework (JCF) is a set of classes and interfaces that provide ready-made data structures to store and manipulate groups of objects efficiently.
+Java provides built-in collection classes like List, Set, Map and Queue, so developers don’t need to write their own data management algorithms.
+
+Advantages
+-> The Collection Framework improves productivity by making code more reusable, maintainable and faster to develop.
+-> Offers interfaces (Collection, List, Set, Map, Queue) to define standard behaviors.
+-> Supports dynamic resizing, unlike arrays with a fixed size.
+-> Includes algorithms (sorting, searching, iteration) via the Collections utility class.
+-> Improves code reusability and performance by reducing boilerplate code.
+
+
+2. List the differences between Vector, ArrayList, LinkedList, and HashSet.
+
+✅ 1. Vector
+✔ Stores elements like an array
+✔ Maintains order
+✔ Allows duplicates
+✔ Thread-safe → means safe for multi-thread apps
+❌ Slow because every operation is synchronized
+
+🔹Example use: older applications needing thread safety
+
+
+✅ 2. ArrayList
+✔ Stores elements in order
+✔ Allows duplicates
+✔ Faster than Vector
+✔ Good for quick access by index
+❌ Not thread-safe
+❌ Insert/delete in between is slow
+
+🔹Best when:
+You want fast search/access
+Insert/remove is rare
+
+
+✅ 3. LinkedList
+✔ Uses nodes linked together
+✔ Allows duplicates
+✔ Fast for insert/delete
+❌ Slow for accessing by index (must traverse)
+❌ Uses more memory (extra pointers)
+
+🔹Best when:
+You add/remove elements often
+Less searching
+
+
+✅ 4. HashSet
+✔ Stores unique items only
+❌ No duplicate allowed
+❌ No indexing
+❌ Order not guaranteed
+✔ Very fast for add, remove, search
+✔ Uses hashing internally
+
+🔹Best when:
+You need unique data
+Order does not matter
